@@ -1,0 +1,30 @@
+{
+  "name": "react-typescript-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "tsc --jsx react --outFile dist/app.js src/app.tsx && shx cp src/index.html dist/index.html ",
+    "start": "live-server dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "typecript",
+    "gulp",
+    "webpack"
+  ],
+  "author": "deepakk87",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react": "^16.0.31",
+    "@types/react-dom": "^16.0.3",
+    "live-server": "^1.2.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "shelljs": "^0.7.8",
+    "shx": "^0.2.2",
+    "typescript": "^2.6.2"
+  }
+}

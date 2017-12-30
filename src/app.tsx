@@ -1,3 +1,5 @@
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 interface ListProps {
   title? : string;
   data : [any];
@@ -36,12 +38,14 @@ class ListStateManager extends React.Component<ListStateManagerProps, ListStateM
 
   handleSubmit ( e : React.FormEvent<HTMLFormElement> ) {
     e.preventDefault();
-    var valueText = e.target['task'].value;
-    console.log(valueText);
+    var form = e.target as HTMLFormElement;
+    var task = form['task'] as HTMLInputElement;
+    var valueTxt = task.value;
+    // Async call setState. Hence task.value="" may get executed first.
     this.setState(prevState => {
-      return { data : [...prevState.data, ...[{key: prevState.data.length + 1, value: valueText}]]} as ListStateManagerState; 
+      return { data : [...prevState.data, ...[{key: prevState.data.length + 1, value: valueTxt}]]} as ListStateManagerState;
     });
-    e.target['task'].value = "";
+    task.value = "";
   }
 
   render() {

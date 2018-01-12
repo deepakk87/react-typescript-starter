@@ -15,7 +15,8 @@ module.exports = {
     },
     module: {
         rules : [
-            { test: /\.tsx?$/, loader: 'ts-loader' }
+            { test: /\.tsx?$/, loader: 'ts-loader' },
+            { test:/\.(s*)css$/, use:['style-loader','css-loader', 'sass-loader']}
         ]
     },
     plugins: [new HtmlWebpackPlugin({title : 'WebApp', filename: 'index.html', template: 'src/index.html'})]

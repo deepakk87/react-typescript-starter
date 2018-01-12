@@ -2,6 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import {List} from "./components/list";
+import './styles/appstyles.scss';
 
 interface IListStateManagerState {
   data: [any];

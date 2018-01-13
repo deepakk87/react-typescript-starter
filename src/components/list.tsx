@@ -14,7 +14,7 @@ export class List extends React.Component<IListProps> {
   {
     this.props.data && this.props.data.length > 0 ?
     this.props.data.map((item) => {
-      return <div key = {item.key}>{item.value}</div>;
+      return <div className="list-item" key = {item.key}>{item.value}</div>;
     }) : null
   }
   </div>;

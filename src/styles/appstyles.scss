@@ -7,7 +7,17 @@ $theme-font: verdana, sans-serif;
 body {
   font: $theme-font;
   background-color: $themeColor-Light;
+  background-image: url('../images/background_image.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
   h1, h2 {
       color: $themeColor-Dark
   }
+}
+
+.list-item {
+  background-image: url('../images/mapmarker.svg');
+  background-repeat: no-repeat;
+  padding-left: 20px;
 }

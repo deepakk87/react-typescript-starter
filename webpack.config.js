@@ -1,5 +1,7 @@
 const path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
 
 module.exports = {
     entry: './src/app.tsx',
@@ -13,11 +15,23 @@ module.exports = {
         // Add `.ts` and `.tsx` as a resolvable extension.
         extensions: ['.ts', '.tsx', '.js']
     },
+    devServer: {
+        contentBase: path.join(__dirname, "dist/"),
+        port: 8080
+    },
     module: {
         rules : [
             { test: /\.tsx?$/, loader: 'ts-loader' },
-            { test:/\.(s*)css$/, use:['style-loader','css-loader', 'sass-loader']}
+            { test:/\.(s*)css$/, use: ExtractTextPlugin.extract({
+                    fallback:'style-loader',
+                    use:['css-loader','sass-loader'],
+                })
+            }
         ]
     },
-    plugins: [new HtmlWebpackPlugin({title : 'WebApp', filename: 'index.html', template: 'src/index.html'})]
+    plugins: [
+        new HtmlWebpackPlugin({title : 'WebApp', filename: 'index.html', template: 'src/index.html'}),
+        new ExtractTextPlugin({filename:'app.bundle.css'}),
+        new webpack.HotModuleReplacementPlugin()
+    ]
 }

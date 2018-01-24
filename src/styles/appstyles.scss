@@ -6,6 +6,7 @@ $theme-font: verdana, sans-serif;
 
 body {
   font: $theme-font;
+  color: $themeColor-Light;
   background-color: $themeColor-Light;
   background-image: url('../images/background_image.jpg');
   background-repeat: no-repeat;

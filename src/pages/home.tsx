@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import ReactTable from "react-table";
-import "react-table/react-table.css";
 export class Home extends React.Component {
     public render() {
         const data = [{
@@ -29,6 +28,7 @@ export class Home extends React.Component {
            optio eius tenetur praesentium iste pariatur rem, suscipit qui
            eaque esse dignissimos.
         </div>
+        <i className="fa fa-area-chart" aria-hidden="true"></i>
         <ReactTable data={data}
                     columns={columns}/>
     </div>;

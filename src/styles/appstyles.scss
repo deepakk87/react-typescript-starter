@@ -1,10 +1,36 @@
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url('~typeface-lato/files/lato-latin-400.woff');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  src: url('~typeface-lato/files/lato-latin-400italic.woff');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: url('~typeface-lato/files/lato-latin-700.woff');
+}
+
 $fa-font-path: "~font-awesome/fonts";
 @import 'themecolors';
 @import '~font-awesome/scss/font-awesome.scss';
 
+@import "variables";
+@import "~bootstrap/scss/bootstrap.scss";
+@import "bootswatch";
+
+
 
 $theme-font: verdana, sans-serif;
-
+/*
 body {
   font: $theme-font;
   color: $themeColor-Light;
@@ -16,7 +42,7 @@ body {
   h1, h2 {
       color: $themeColor-Dark
   }
-}
+}*/
 
 .list-item {
   background-image: url('../images/mapmarker.svg');

@@ -10,7 +10,7 @@ export class Edit extends React.Component {
         <div className="Edit">
             <ListStateManager title = "Task List">
             </ListStateManager>
-        </div>;
+        </div>
     </div>;
     }
 }

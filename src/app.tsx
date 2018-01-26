@@ -1,18 +1,21 @@
+import * as history from "history";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
 
+import { Router } from "react-router-dom";
 import { Header } from "./components/header";
 import { Main } from "./components/main";
+
 import "./styles/appstyles.scss";
 
+const historyObj =  history.createBrowserHistory();
 const template =
-<BrowserRouter>
+<Router history={historyObj} >
     <div>
-      <Header></Header>
+      <Header history = {historyObj} brand = {"PSRocks"}></Header>
       <Main></Main>
     </div>
-</BrowserRouter>;
+</Router>;
 
 const root = document.getElementById("main");
 ReactDOM.render(template, root);

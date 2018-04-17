@@ -26,8 +26,8 @@ $fa-font-path: "~font-awesome/fonts";
 @import "variables";
 @import "~bootstrap/scss/bootstrap.scss";
 @import "bootswatch";
-
-
+@import "~bootstrap-material-design/scss/bootstrap-material-design.scss";
+@import "~react-table/react-table.css";
 
 $theme-font: verdana, sans-serif;
 /*

@@ -13,7 +13,9 @@ const template =
 <Router history={historyObj} >
     <div>
       <Header history = {historyObj} brand = {"PSRocks"}></Header>
-      <Main></Main>
+      <div className="container">
+          <Main></Main>
+      </div>
     </div>
 </Router>;
 

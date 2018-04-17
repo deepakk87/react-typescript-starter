@@ -9,7 +9,7 @@ import { Home } from "../pages/home";
 export class Main extends React.Component {
     public render() {
         return <Switch>
-        <Route exact path="/home" component={Home}/>
+        <Route exact path="/" component={Home}/>
         <Route path="/edit" component={Edit}/>
         <Route path="/about" component={AboutUs}/>
       </Switch>;

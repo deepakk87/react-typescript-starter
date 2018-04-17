@@ -19,8 +19,6 @@ import {
     UncontrolledDropdown,
 } from "reactstrap";
 
-
-
 interface IHeaderProps {
     history: History;
     brand: string;
@@ -41,14 +39,14 @@ export class Header extends React.Component <IHeaderProps, IHeaderState> {
 
     public render() {
         return <div className="MainMenu">
-            <Navbar color="primary" inverse expand="md">
+            <Navbar className="bg-light" light={true} color="primary" expand="md">
                 <NavbarBrand href="/">PSROCKS</NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.collapseMenuOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink href="/home" onClick= {(e) => {e.preventDefault();
-                                                                    this.navigateTo("/home"); }} >Home</NavLink>
+                            <NavLink href="/" onClick= {(e) => {e.preventDefault();
+                                                                this.navigateTo("/"); }} >Home</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href="/edit" onClick= {(e) => {e.preventDefault();

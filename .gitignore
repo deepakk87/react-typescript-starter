@@ -1,5 +1,8 @@
-dist
+.idea
+target
 package-lock.json
 node_modules
 .idea
 *.iml
+npm-debug.log
+nb-configuration.xml

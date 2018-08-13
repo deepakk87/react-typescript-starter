@@ -45,15 +45,15 @@ export class Header extends React.Component <IHeaderProps, IHeaderState> {
                 <Collapse isOpen={this.state.collapseMenuOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink href="/" onClick= {(e) => {e.preventDefault();
+                            <NavLink href="/" onClick= {(e: any) => {e.preventDefault();
                                                                 this.navigateTo("/"); }} >Home</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/edit" onClick= {(e) => {e.preventDefault();
+                            <NavLink href="/edit" onClick= {(e: any) => {e.preventDefault();
                                                                     this.navigateTo("/edit"); }} >Edit</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/about" onClick= {(e) => {e.preventDefault();
+                            <NavLink href="/about" onClick= {(e: any) => {e.preventDefault();
                                                                      this.navigateTo("/about"); }} >About</NavLink>
                         </NavItem>
                         <UncontrolledDropdown  nav >

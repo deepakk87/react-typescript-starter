@@ -30,7 +30,7 @@ $fa-font-path: "~font-awesome/fonts";
 @import "~react-table/react-table.css";
 
 $theme-font: verdana, sans-serif;
-/*
+
 body {
   font: $theme-font;
   color: $themeColor-Light;
@@ -42,7 +42,7 @@ body {
   h1, h2 {
       color: $themeColor-Dark
   }
-}*/
+}
 
 .list-item {
   background-image: url('../images/mapmarker.svg');

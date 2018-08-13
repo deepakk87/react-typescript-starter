@@ -4,9 +4,9 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './src/app.tsx',
+    entry: './src/main/resources/public/js/app.tsx',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'target/classes/public'),
         filename: 'bundle.js'
     },
     // Enable sourcemaps for debugging webpack's output.
@@ -16,11 +16,11 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.js']
     },
     devServer: {
-        contentBase: path.join(__dirname, "dist/"),
+        contentBase: path.join(__dirname, "target/classes/public"),
         port: 3000,
         proxy: {
             "/api/*":{
-                target:"http://localhost:8080/",
+                target:"http://localhost:5000/",
                 secure:"false"
             },
         },
@@ -53,7 +53,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({title : 'WebApp', filename: 'index.html', template: 'src/index.html'}),
+        new HtmlWebpackPlugin({title : 'WebApp', filename: 'index.html', template: 'src/main/resources/public/index.html'}),
         new ExtractTextPlugin({filename:'app.bundle.css'}),
         new webpack.HotModuleReplacementPlugin()
     ]

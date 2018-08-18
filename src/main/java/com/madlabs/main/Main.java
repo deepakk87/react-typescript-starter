@@ -1,6 +1,7 @@
 package com.madlabs.main;
 
 import com.madlabs.investments.config.ApiConfig;
+import com.madlabs.investments.config.SwaggerConfig;
 import com.madlabs.investments.config.WebConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,14 +20,13 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
     
-    
-    
     @Bean
     public ServletRegistrationBean api() {
         DispatcherServlet dispatcherServlet = new DispatcherServlet();
 
         AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
         applicationContext.register(ApiConfig.class);
+        applicationContext.register(SwaggerConfig.class);
         dispatcherServlet.setApplicationContext(applicationContext);
 
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(dispatcherServlet, "/api/*");
@@ -40,6 +40,7 @@ public class Main {
 
         AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
         applicationContext.register(WebConfig.class);
+        
         dispatcherServlet.setApplicationContext(applicationContext);
 
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(dispatcherServlet, "/*");

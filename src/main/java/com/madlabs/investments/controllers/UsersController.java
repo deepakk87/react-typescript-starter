@@ -3,10 +3,12 @@ package com.madlabs.investments.controllers;
 
 import com.madlabs.investments.models.User;
 import com.madlabs.investments.repository.UsersRepository;
+import io.swagger.annotations.Api;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /*
@@ -19,18 +21,19 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author deepa
  */
+@Api(value = "assets", description = "model for asset object")
 @RestController
 @RequestMapping("/users")
 public class UsersController {
     
     @Autowired
     private UsersRepository repository;
-    @RequestMapping
+    @RequestMapping(method = RequestMethod.GET)
     public List<User> getUsers(){
         return repository.findAll();
     }
     
-    @RequestMapping("/create")
+    @RequestMapping(method = RequestMethod.POST, path = "/create")
     public User createUser(@RequestBody User user){
         return repository.insert(user);
     }

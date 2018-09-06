@@ -6,3 +6,8 @@ node_modules
 *.iml
 npm-debug.log
 nb-configuration.xml
+.DS_Store
+.classpath
+.factorypath
+.project
+.settings

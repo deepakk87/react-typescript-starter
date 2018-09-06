@@ -1,13 +1,18 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
+        "outDir": "./target/",
+        "skipLibCheck": true,
         "sourceMap": true,
         "noImplicitAny": true,
         "module": "commonjs",
-        "target": "es3",
+        "target": "es5",
         "jsx": "react"
     },
     "include": [
         "./src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "src/test"
     ]
 }

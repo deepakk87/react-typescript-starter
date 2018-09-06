@@ -27,7 +27,8 @@ module.exports = {
     },
     module: {
         rules : [
-            { test: /\.tsx?$/, loader: 'ts-loader' },
+            { test: /\.tsx?$/, loader: 'ts-loader',exclude: '/src/test/',
+        },
             { test:/\.(s*)css$/, use: ExtractTextPlugin.extract({
                     fallback:'style-loader',
                     use:['css-loader','sass-loader'],

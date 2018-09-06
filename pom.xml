@@ -137,7 +137,7 @@
                             <goal>install-node-and-npm</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>v4.4.5</nodeVersion>
+                            <nodeVersion>v10.0.0</nodeVersion>
                             <npmVersion>3.9.2</npmVersion>
                         </configuration>
                     </execution>
@@ -148,6 +148,32 @@
                         </goals>
                         <configuration>
                             <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>webpack build</id>
+                        <goals>
+                            <goal>webpack</goal>
+                        </goals>
+
+                        <!-- optional: the default phase is "generate-resources" -->
+                        <phase>generate-resources</phase>
+                    </execution>
+                    <execution>
+                        <id>npm test</id>
+                            <goals>
+                                <goal>npm</goal>
+                            </goals>
+
+                        <!-- optional: default phase is "generate-resources" -->
+                        <phase>test</phase>
+
+                        <configuration>
+                        <!-- optional: The default argument is actually
+                        "install", so unless you need to run some other npm command,
+                        you can remove this whole <configuration> section.
+                            -->
+                        <arguments>test</arguments>
                         </configuration>
                     </execution>
                 </executions>

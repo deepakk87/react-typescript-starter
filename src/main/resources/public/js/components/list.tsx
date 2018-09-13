@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 export interface IListProps {
   title?: string;
-  data: [any];
+  data: string [];
 }
 
 export class List extends React.Component<IListProps> {
@@ -13,8 +13,8 @@ export class List extends React.Component<IListProps> {
   }
   {
     this.props.data && this.props.data.length > 0 ?
-    this.props.data.map((item) => {
-      return <div className="list-item" key = {item.key}>{item.value}</div>;
+    this.props.data.map((item, index) => {
+      return <div className="list-item" key = {index}>{item}</div>;
     }) : null
   }
   </div>;

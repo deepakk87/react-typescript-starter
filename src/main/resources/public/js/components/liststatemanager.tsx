@@ -1,24 +1,22 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+import {connect} from "react-redux";
 
+import { ApplicationState, Posts } from "../state/application-state";
 import { List } from "./list";
 
-export interface IListStateManagerState {
-    data: [any];
-}
+import {addPostAction} from "../reducer/posts";
 
 export interface IListStateManagerProps {
     title: string;
+    posts: Posts;
+    addPost: (post: string) => void;
 }
 
-export class ListStateManager extends React.Component<IListStateManagerProps, IListStateManagerState> {
+// tslint:disable-next-line:class-name
+class _ListStateManager extends React.Component<IListStateManagerProps> {
     constructor(props: IListStateManagerProps) {
       super(props);
-      this.state = {data : [] as [any] };
       this.handleSubmit = this.handleSubmit.bind(this);
-      const data: [number] = undefined;
-      // tslint:disable-next-line:no-console
-      console.log(data);
     }
 
     public handleSubmit(e: React.FormEvent<HTMLFormElement> ) {
@@ -27,17 +25,13 @@ export class ListStateManager extends React.Component<IListStateManagerProps, IL
       const task = form.task as HTMLInputElement;
       const valueTxt = task.value;
       // Async call setState. Hence task.value="" may get executed first.
-      this.setState((prevState) => {
-        return {
-          data : [...prevState.data, ...[{key: prevState.data.length + 1, value: valueTxt}]],
-        } as IListStateManagerState;
-      });
+      this.props.addPost(valueTxt);
       task.value = "";
     }
 
     public render() {
       return <div>
-          <List data = {this.state.data} title = {this.props.title}></List>
+          <List data = {this.props.posts.data} title = {this.props.title}></List>
           <form onSubmit = {this.handleSubmit} >
             <input type="text" name="task"/>
             <input type="submit"/>
@@ -45,3 +39,19 @@ export class ListStateManager extends React.Component<IListStateManagerProps, IL
       </div>;
     }
 }
+
+const mapStateToProps = (state: ApplicationState)  => {
+    return {
+        posts : state.posts,
+    };
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+     return {
+        addPost: (post: string) => {
+          dispatch(addPostAction(post));
+        },
+    };
+};
+
+export const ListStateManager = connect(mapStateToProps, mapDispatchToProps)(_ListStateManager);
